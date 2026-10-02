@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Credits & Acknowledgements */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-[11px] text-slate-500">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <span>Equipamentos: SHINING 3D EinScan Rigil</span>
             <span>·</span>
             <span>Software: EXScan Rigil v1.3.2-7</span>
@@ -51,8 +51,26 @@ export const Footer: React.FC = () => {
             <span>Validação 3D: Creality Print 7.0 (Smooth PEI)</span>
           </div>
 
-          <div>
-            <span>Desenvolvido para apoio discente à pesquisa científica e acadêmica.</span>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://github.com/marceloengvs-hub/pesquisa-escaneamento-3d-einscan-rigil/releases/tag/v1.0.0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1 font-mono"
+            >
+              <span>GitHub Releases v1.0.0</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
+            <span>·</span>
+            <a
+              href="https://github.com/marceloengvs-hub/pesquisa-escaneamento-3d-einscan-rigil"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-white transition-colors flex items-center gap-1"
+            >
+              <span>Repositório GitHub</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
           </div>
         </div>
       </div>

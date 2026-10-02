@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SpecimenData } from '../data/researchData';
 import { SpecimenViewer3D } from './SpecimenViewer3D';
-import { X, Check, FileCheck, Layers, Eye, ShieldCheck, Microscope, Camera, Compass } from 'lucide-react';
+import { X, Check, FileCheck, Layers, Eye, ShieldCheck, Microscope, Camera, Compass, Download, Box, ExternalLink } from 'lucide-react';
 
 interface SpecimenDetailModalProps {
   specimen: SpecimenData | null;
@@ -179,6 +179,61 @@ export const SpecimenDetailModal: React.FC<SpecimenDetailModalProps> = ({ specim
               </div>
             </div>
           </div>
+
+          {/* Downloads de Malhas 3D Originais (GitHub Releases) */}
+          {specimen.downloads && specimen.downloads.length > 0 && (
+            <div className="p-4 sm:p-5 rounded-xl bg-gradient-to-r from-cyan-950/40 via-slate-900 to-slate-950 border border-cyan-800/60 shadow-lg">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                <div>
+                  <h4 className="text-sm font-bold text-white flex items-center gap-2">
+                    <Download className="w-4 h-4 text-cyan-400" />
+                    <span>Download das Malhas 3D Oficiais (GitHub Releases)</span>
+                  </h4>
+                  <p className="text-xs text-slate-400 mt-0.5">
+                    Arquivos brutos de escaneamento sem perda de resolução (0,05 mm), prontos para CAD e fatiamento.
+                  </p>
+                </div>
+                <span className="font-mono text-[11px] text-cyan-300 bg-cyan-950/80 border border-cyan-700/80 px-2.5 py-1 rounded-full self-start sm:self-auto font-semibold">
+                  Release v1.0.0 Oficial
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {specimen.downloads.map((dl, idx) => (
+                  <a
+                    key={idx}
+                    href={dl.url}
+                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3.5 rounded-lg bg-slate-900/90 border border-slate-800 hover:border-cyan-500 hover:bg-slate-800/90 transition-all flex items-center justify-between group shadow-sm"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-cyan-950/90 border border-cyan-800 flex items-center justify-center text-cyan-400 group-hover:scale-105 group-hover:bg-cyan-900 transition-all">
+                        <Box className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs font-bold text-white group-hover:text-cyan-300 transition-colors">
+                            Formato {dl.format} ({dl.fileName})
+                          </span>
+                        </div>
+                        <span className="text-[11px] text-slate-400 block line-clamp-1 mt-0.5">
+                          {dl.description}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2 shrink-0 ml-2">
+                      <span className="text-[10px] font-mono text-cyan-400 bg-cyan-950 px-2 py-0.5 rounded border border-cyan-800/60 font-semibold">
+                        {dl.size}
+                      </span>
+                      <Download className="w-4 h-4 text-slate-400 group-hover:text-cyan-400 group-hover:translate-y-0.5 transition-all" />
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Key Methodological Challenges Solved */}
           <div>

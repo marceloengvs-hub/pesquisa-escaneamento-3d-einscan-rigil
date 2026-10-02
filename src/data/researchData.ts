@@ -26,6 +26,14 @@ export interface ScanningParameters {
   frameRate?: string;
 }
 
+export interface SpecimenDownloadItem {
+  format: 'STL' | '3MF' | 'OBJ';
+  fileName: string;
+  size: string;
+  url: string;
+  description: string;
+}
+
 export interface SpecimenData {
   id: string;
   title: string;
@@ -41,6 +49,7 @@ export interface SpecimenData {
   videoFileName: string;
   gifUrl?: string;
   gifFileName?: string;
+  downloads?: SpecimenDownloadItem[];
   resultDetails: {
     format: string;
     fileSizeEstimate: string;
@@ -51,6 +60,10 @@ export interface SpecimenData {
   };
   sampleTag: string;
 }
+
+export const GITHUB_REPO_URL = "https://github.com/marceloengvs-hub/pesquisa-escaneamento-3d-einscan-rigil";
+export const GITHUB_RELEASE_URL = "https://github.com/marceloengvs-hub/pesquisa-escaneamento-3d-einscan-rigil/releases/tag/v1.0.0";
+
 
 export const EQUIPMENT_ASSETS = {
   softwareSplash: {
@@ -159,6 +172,22 @@ export const SPECIMENS: SpecimenData[] = [
         url: "/Peça_000001.jpg"
       }
     ],
+    downloads: [
+      {
+        format: "STL",
+        fileName: "Peca_001.stl",
+        size: "581.6 MB",
+        url: "https://github.com/marceloengvs-hub/pesquisa-escaneamento-3d-einscan-rigil/releases/download/v1.0.0/Peca_001.stl",
+        description: "Malha estanque de ultra-resolução (0,05 mm) para visualização e CAD"
+      },
+      {
+        format: "3MF",
+        fileName: "Peca_01.3mf",
+        size: "208.5 MB",
+        url: "https://github.com/marceloengvs-hub/pesquisa-escaneamento-3d-einscan-rigil/releases/download/v1.0.0/Peca_01.3mf",
+        description: "Projeto fatiador Creality Print 7.0 com perfil Smooth PEI Plate"
+      }
+    ],
     resultDetails: {
       format: "STL Watertight com malha adaptativa",
       fileSizeEstimate: "48.2 MB",
@@ -232,6 +261,22 @@ export const SPECIMENS: SpecimenData[] = [
         url: "/Peça_002.jpg"
       }
     ],
+    downloads: [
+      {
+        format: "STL",
+        fileName: "Peca_02.stl",
+        size: "200.7 MB",
+        url: "https://github.com/marceloengvs-hub/pesquisa-escaneamento-3d-einscan-rigil/releases/download/v1.0.0/Peca_02.stl",
+        description: "Malha estanque do anel ósseo C1 completa (0,05 mm)"
+      },
+      {
+        format: "3MF",
+        fileName: "Peca_02.3mf",
+        size: "78.0 MB",
+        url: "https://github.com/marceloengvs-hub/pesquisa-escaneamento-3d-einscan-rigil/releases/download/v1.0.0/Peca_02.3mf",
+        description: "Projeto Creality Print 7.0 para impressão 3D de alta precisão"
+      }
+    ],
     resultDetails: {
       format: "STL Watertight (Estanque)",
       fileSizeEstimate: "24.6 MB",
@@ -303,6 +348,22 @@ export const SPECIMENS: SpecimenData[] = [
         fallbackColor: "from-amber-900/30 to-slate-900",
         fileName: "Peça_003.jpg",
         url: "/Peça_003.jpg"
+      }
+    ],
+    downloads: [
+      {
+        format: "STL",
+        fileName: "Peca_03.stl",
+        size: "228.6 MB",
+        url: "https://github.com/marceloengvs-hub/pesquisa-escaneamento-3d-einscan-rigil/releases/download/v1.0.0/Peca_03.stl",
+        description: "Malha estanque de alta definição do processo odontóide (0,05 mm)"
+      },
+      {
+        format: "3MF",
+        fileName: "Peca_03.3mf",
+        size: "88.0 MB",
+        url: "https://github.com/marceloengvs-hub/pesquisa-escaneamento-3d-einscan-rigil/releases/download/v1.0.0/Peca_03.3mf",
+        description: "Projeto Creality Print 7.0 preparado para manufatura aditiva"
       }
     ],
     resultDetails: {

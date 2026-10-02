@@ -132,6 +132,20 @@ export const ComparisonBox: React.FC<ComparisonBoxProps> = ({ specimen, onOpenDe
 
         {/* Controls */}
         <div className="flex items-center gap-2 self-start md:self-auto flex-wrap">
+          {specimen.downloads && specimen.downloads.length > 0 && (
+            <a
+              href={specimen.downloads[0].url}
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-1.5 rounded-lg border border-cyan-500/40 bg-cyan-950/60 hover:bg-cyan-900/80 text-cyan-300 text-xs font-medium transition-all flex items-center gap-1.5 shadow-sm hover:border-cyan-400 group"
+              title={`Baixar ${specimen.downloads[0].fileName} (${specimen.downloads[0].size}) via GitHub Releases`}
+            >
+              <Download className="w-3.5 h-3.5 text-cyan-400 group-hover:scale-110 transition-transform" />
+              <span>Baixar {specimen.downloads[0].format} ({specimen.downloads[0].size})</span>
+            </a>
+          )}
+
           <button
             onClick={handleSwapPanels}
             className="px-2.5 py-1.5 rounded-lg border border-slate-700 bg-slate-800/80 hover:bg-slate-700 text-slate-300 text-xs font-medium transition-colors flex items-center gap-1"
