@@ -1,0 +1,6 @@
+{
+  "name": "Pesquisa em Escaneamento 3D | EinScan Rigil",
+  "description": "Plataforma de pesquisa acadêmica em digitalização tridimensional de peças anatômicas utilizando o scanner EinScan Rigil e software EXScan Pro v1.3.2-7.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
